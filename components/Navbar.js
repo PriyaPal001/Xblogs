@@ -4,6 +4,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import { Button } from './ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,27 +32,41 @@ const Navbar = () => {
             <Link href="/" className="text-gray-700 hover:text-blue-500">Home</Link>
             <Link href="/about" className="text-gray-700 hover:text-blue-500">About</Link>
             <Link href="/contact" className="text-gray-700 hover:text-blue-500">Contact</Link>
+            <div>
+                <Button className="mx-1" variant="default">Login</Button>
+                <Button className="mx-1" variant="outline">Sign Up</Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Open Menu">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-64 sm:w-80">
+                <SheetHeader>
+                  <SheetTitle className="text-lg">Menu</SheetTitle>
+                </SheetHeader>
+                <div className="mt-6 flex flex-col space-y-4 text-center items-center">
+                  <Link href="/" className="text-gray-700 hover:text-blue-500 text-base">Home</Link>
+                  <Link href="/about" className="text-gray-700 hover:text-blue-500 text-base">About</Link>
+                  <Link href="/contact" className="text-gray-700 hover:text-blue-500 text-base">Contact</Link>
+                  <div className="flex flex-col gap-2 pt-4">
+                    <Button variant="default" className="w-16">Login</Button>
+                    <Button variant="outline" className="w-16">Sign Up</Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white px-4 pb-4">
-          <Link href="/" className="block py-2 text-gray-700 hover:text-blue-500">Home</Link>
-          <Link href="/about" className="block py-2 text-gray-700 hover:text-blue-500">About</Link>
-          <Link href="/contact" className="block py-2 text-gray-700 hover:text-blue-500">Contact</Link>
-        </div>
-      )}
     </nav>
   );
 };
 
 export default Navbar;
+ 
