@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
+import { ModeToggle } from './theme-btn';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-5 lg:px-6">
         <div className="flex justify-between h-14 items-center">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-black">MyLogo</Link>
+          <Link href="/" className="text-xl font-bold ">MyLogo</Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-6">
@@ -35,17 +36,20 @@ const Navbar = () => {
             <div>
                 <Button className="mx-1" variant="default">Login</Button>
                 <Button className="mx-1" variant="outline">Sign Up</Button>
+                <ModeToggle />
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
           <Sheet>
+          <ModeToggle />
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Open Menu">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
+              
               <SheetContent side="right" className="w-64 sm:w-80">
                 <SheetHeader>
                   <SheetTitle className="text-lg">Menu</SheetTitle>
@@ -57,6 +61,7 @@ const Navbar = () => {
                   <div className="flex flex-col gap-2 pt-4">
                     <Button variant="default" className="w-16">Login</Button>
                     <Button variant="outline" className="w-16">Sign Up</Button>
+              
                   </div>
                 </div>
               </SheetContent>
