@@ -26,6 +26,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6 items-center">
             <Link href="/" className="text-gray-700 hover:scale-105 hover:transition-transform duration-200" aria-label="Home">Home</Link>
             <Link href="/about" className="text-gray-700 hover:scale-105 hover:transition-transform duration-200" aria-label="About">About</Link>
+            <Link href="/blogs" className="text-gray-700 hover:scale-105 hover:transition-transform duration-200" aria-label="Blogs">Blogs</Link>
             <Link href="/contact" className="text-gray-700 hover:scale-105 hover:transition-transform duration-200" aria-label="Contact">Contact</Link>
             <div>
               <Button className="mx-1" variant="default">Login</Button>
@@ -50,6 +51,7 @@ const Navbar = () => {
                 <div className="mt-6 flex flex-col space-y-4 text-center items-center">
                   <Link href="/" className="text-gray-700 hover:text-blue-500 text-base" aria-label="Home">Home</Link>
                   <Link href="/about" className="text-gray-700 hover:text-blue-500 text-base" aria-label="About">About</Link>
+                  <Link href="/blogs" className="text-gray-700 hover:text-blue-500 text-base" aria-label="Blogs">Blogs</Link>
                   <Link href="/contact" className="text-gray-700 hover:text-blue-500 text-base" aria-label="Contact">Contact</Link>
                   <div className="flex flex-col gap-2 pt-4 w-full px-6">
                     <Button variant="default" className="w-full">Login</Button>
